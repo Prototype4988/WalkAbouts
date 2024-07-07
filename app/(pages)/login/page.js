@@ -3,7 +3,7 @@
 import Head from "next/head";
 import Layout from "../../layout/layout";
 import Link from "next/link";
-import styles from "../Form.module.css";
+import styles from "../../Form.module.css";
 import Image from "next/image";
 import {HiAtSymbol, HiFingerPrint} from "react-icons/hi";
 import { useSession, signIn, signOut } from "next-auth/react"

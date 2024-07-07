@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
-import NewsLetter from "../../components/Newsletter";
+import TravelGuide from "../../components/TravelGuide";
 import Head from "next/head";
 import { redirect } from 'next/navigation'
 //import { useState } from "react";
@@ -11,7 +11,7 @@ import { getServerSession } from "next-auth/next";
 import { signOut } from "next-auth/react";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
 //import { getServe
-export default async function NewsLetterPage() {
+export default async function TravelGuidePage() {
   
   const session = await getServerSession(authOptions);
   //const session = await getServerAuthSession(); 
@@ -43,6 +43,6 @@ function unAuth(){
 //Authorized
 function AuthUser({session}){
   return(<main>
-    <NewsLetter session={session}/>
+    <TravelGuide session={session}/>
   </main>)
 }
