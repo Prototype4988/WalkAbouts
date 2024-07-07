@@ -4,9 +4,10 @@ import Link from 'next/link';
 import React from 'react';
 import { Montserrat } from 'next/font/google';
 import { cn } from '../../@/lib/utils';
-import { LayoutDashboard, LogOut, Map, Tent, UserRound } from 'lucide-react';
+import { LayoutDashboard, LogOut, Map, Tent,Newspaper, UserRound } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { signOut } from "next-auth/react";
+
 
 const montserrat = Montserrat({
     weight: "600",
@@ -39,6 +40,13 @@ const routes =[
         icon: Tent,
         href: "/tourguide",
         color: "text-orange-700",
+        
+    },
+    {
+        label: "NewsLetter",
+        icon: Newspaper,
+        href: "/newsletter",
+        color: "text-green-700",
         
     },
     

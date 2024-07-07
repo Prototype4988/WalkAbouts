@@ -37,6 +37,11 @@ const Navbar = () => {
                         Tour Guide
                     </li>
                 </Link>
+                <Link href="/">
+                    <li className='hover:text-blue-400 hover:underline duration-200'>
+                    Newsletters
+                    </li>
+                </Link>
             </ul>
         </div>
         <div className='hidden md:flex gap-10'>

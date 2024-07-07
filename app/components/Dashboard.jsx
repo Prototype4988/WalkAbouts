@@ -6,7 +6,7 @@ import { Card } from '../../@/components/ui/card';
 import { cn } from '../../@/lib/utils';
 import Navdashboard from './Navdashboard';
 import Sidebar from './Sidebar';
-import { ArrowRight, UserRound, Map, Tent, } from 'lucide-react';
+import { ArrowRight, UserRound, Map, Tent,Newspaper } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const tools=[
@@ -30,6 +30,13 @@ const tools=[
         color: "text-orange-700",
         bgColor: "bg-orange-700/10",
         href: "/tour",
+    },
+    {
+        label: "NewsLetter",
+        icon: Newspaper,
+        color: "text-green-700",
+        bgColor: "bg-green-700/10",
+        href: "/newsletter",
     },
 ]
 const Dashboard = ({session}) => {
