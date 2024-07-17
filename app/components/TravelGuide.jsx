@@ -3,6 +3,7 @@ import React from 'react'
 import Sidebar from './Sidebar';
 import { useRouter } from 'next/navigation';
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import Orb from './Orb';
 
 const travelguide = ({session}) => {
     const router= useRouter();
@@ -15,8 +16,9 @@ const travelguide = ({session}) => {
                     <Sidebar session={session}/>
                 </div>
             </div>
-            <main className='md:pl-72'>
+            <main className='md:pl-72 flex items-center justify-center h-screen'>
                 <div>
+                    <Orb/>
                 </div>            
             </main>
         </div>
