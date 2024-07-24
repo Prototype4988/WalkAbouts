@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-h4-libre {
+    @apply text-2xl font-serif;
+  }
+}
+
+@layer components {
+  .swiper.swiper-horizontal > .swiper-scrollbar,
+  .swiper .swiper-scrollbar.swiper-scrollbar-horizontal {
+    @apply relative top-auto left-auto right-auto bottom-auto w-auto h-0.25 mt-20 rounded-none bg-n-100 md:mt-8;
+  }
+  .swiper .swiper-scrollbar-drag {
+    @apply bg-n-400;
+  }
+
+  .swiper-discover .swiper-wrapper {
+    @apply min-h-[35.125rem];
+  }
+  .swiper-discover .swiper-slide.swiper-slide-active .image {
+    @apply h-[31.625rem] mt-0;
+  }
+  .swiper-discover.swiper-horizontal > .swiper-scrollbar,
+  .swiper-discover .swiper-scrollbar.swiper-scrollbar-horizontal {
+    @apply mt-12 lg:mx-60;
+  }
+
+  .react-datepicker-popper .react-datepicker {
+    @apply font-sans;
+  }
+  .react-datepicker .react-datepicker__navigation span {
+    @apply top-0.5;
+  }
+
+  .content h4,
+  .content-lg h4 {
+    @apply text-h4-libre text-primary-500;
+  }
+  .content > figure img,
+  .content-lg > figure img {
+    @apply w-full;
+  }
+  .content > hr,
+  .content-lg > hr {
+    @apply border-neutral-200;
+  }
+
+  .content h4 {
+    @apply mb-6;
+  }
+  .content > figure:not(:first-child) {
+    @apply mt-10;
+  }
+  .content figure:not(:last-child),
+  .content ul:not(:last-child),
+  .content p:not(:last-child) {
+    @apply mb-10;
+  }
+
+  .content-lg h4 {
+    @apply mb-3;
+  }
+  .content-lg > figure:not(:first-child) {
+    @apply mt-6;
+  }
+  .content-lg figure:not(:last-child),
+  .content-lg ul:not(:last-child),
+  .content-lg p:not(:last-child),
+  .content-lg hr:not(:last-child) {
+    @apply mb-6;
+  }
+  .content-lg ul {
+    @apply pl-6 list-disc;
+  }
+
+  .list-square li {
+    @apply relative mb-3 pl-9 before:absolute before:top-2 before:left-2 before:w-2 before:h-2 before:bg-primary-500 before:rotate-45 last:mb-0;
+  }
+
+  .swiper-gallery-main .swiper-slide {
+    @apply flex justify-center items-center overflow-hidden h-[calc(100vh-11rem)] max-h-[35.5rem] md:h-64;
+  }
+  .swiper-gallery-thumbs .swiper-slide {
+    @apply h-22 overflow-hidden after:absolute after:-inset-1 after:bg-black/60 after:transition-opacity;
+  }
+  .swiper-gallery-thumbs .swiper-slide.swiper-slide-thumb-active {
+    @apply after:opacity-0;
+  }
+  .swiper-gallery-main .swiper-slide img {
+    @apply scale-[1.01];
+  }
+  .swiper-gallery-main .swiper-slide img,
+  .swiper-gallery-thumbs .swiper-slide img {
+    @apply w-full h-full object-cover;
+  }
+}

@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
 import NewsLetter from "../../components/Newsletter";
 import Head from "next/head";
+import '../../public/styles/global.css'
 import { redirect } from 'next/navigation'
 //import { useState } from "react";
 //import { useSession} from "next-auth/react"
