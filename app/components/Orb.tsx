@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { createNoise3D } from 'simplex-noise';
 import useVapi from '../hooks/use-vapi';
- 
+
+let connected = false;
 const Orb: React.FC = () => {
   const { volumeLevel, isSessionActive, toggleCall } = useVapi();
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -33,6 +34,7 @@ const Orb: React.FC = () => {
     }
   }, [volumeLevel, isSessionActive]);
  
+
   const initViz = () => {
     console.log("Initializing Three.js visualization...");
     const scene = new THREE.Scene();
@@ -155,7 +157,7 @@ const Orb: React.FC = () => {
     positionAttribute.needsUpdate = true;
     geometry.computeVertexNormals();
   };
- 
+
   return (
     <div style={{ height: '100%' }}>
       <div id="out" className="hover:cursor-pointer" onClick={toggleCall} style={{ height: '100%', width: '100%' }}></div>

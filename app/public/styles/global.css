@@ -80,15 +80,20 @@
     @apply relative mb-3 pl-9 before:absolute before:top-2 before:left-2 before:w-2 before:h-2 before:bg-primary-500 before:rotate-45 last:mb-0;
   }
 
+  .transition-opacity {
+    transition: opacity 0.5s ease-in-out;
+  }  
+
   .swiper-gallery-main .swiper-slide {
     @apply flex justify-center items-center overflow-hidden h-[calc(100vh-11rem)] max-h-[35.5rem] md:h-64;
   }
   .swiper-gallery-thumbs .swiper-slide {
-    @apply h-22 overflow-hidden after:absolute after:-inset-1 after:bg-black/60 after:transition-opacity;
+    @apply h-22 overflow-hidden after:absolute after:-inset-1 after:bg-black/60 after:transition-;
   }
   .swiper-gallery-thumbs .swiper-slide.swiper-slide-thumb-active {
     @apply after:opacity-0;
   }
+
   .swiper-gallery-main .swiper-slide img {
     @apply scale-[1.01];
   }

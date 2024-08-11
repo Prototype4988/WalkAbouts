@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { signOut } from "next-auth/react";
 //import { Button } from '../../@/components/ui/button';
 //import { Card } from '../../@/components/ui/card';
@@ -9,6 +9,7 @@ import Sidebar from './Sidebar';
 import { ArrowRight, UserRound, Map, Tent,Newspaper } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import {Card, CardHeader, CardBody, CardFooter, Image, Button} from "@nextui-org/react";
+
 
 const tools=[
     {
@@ -42,6 +43,13 @@ const tools=[
 ]
 const Dashboard = ({session}) => {
     const router= useRouter();
+    const [imageLoaded, setImageLoaded] = useState({});
+
+    const handleImageLoad = (key) => {
+        console.log(`Image loaded: ${key}`);
+        setImageLoaded((prev) => ({ ...prev, [key]: true }));
+    };
+
   return (
     
     
@@ -96,7 +104,10 @@ const Dashboard = ({session}) => {
                             removeWrapper
                             alt="Card background"
                             className="z-0 w-auto h-full object-cover"
-                            src="assets/Voice_bot.jpg"
+                            src="/assets/voice_bot.jpg"
+                            style={{ opacity: 1, display: 'block' }}
+                            onLoad={() => handleImageLoad('voice_bot')}
+                            onError={() => console.error(`Failed to load image: /assets/voice_bot.jpg`)}
                         />
                     </CardBody>
                 </Card>
@@ -109,6 +120,7 @@ const Dashboard = ({session}) => {
                                 removeWrapper
                                 alt="Card background"
                                 className="z-0 w-full h-full object-cover"
+                                style={{ opacity: 1, display: 'block' }}
                                 src="assets/Travel_guide.jpg"
                             />
                     
@@ -122,6 +134,7 @@ const Dashboard = ({session}) => {
                         removeWrapper
                         alt="Card background"
                         className="z-0 w-full h-full object-cover"
+                        style={{ opacity: 1, display: 'block' }}
                         src="assets/tour.jpg"
                     />
                     <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
@@ -159,8 +172,10 @@ const Dashboard = ({session}) => {
                     <Image
                         removeWrapper
                         alt="Card example background"
-                        className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
+                        className="z-0 w-full h-full object-cover"
                         src="assets/newsletter.jpg"
+                        style={{ opacity: 1, display: 'block' }}
+                        onLoad={() => handleImageLoad('newsletter')}
                     />
                     <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
                         <div>

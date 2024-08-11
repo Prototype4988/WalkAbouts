@@ -6,8 +6,20 @@ import Tabs from './Tabs';
 import ExperiencesItem from './ExperiencesItem';
 import { experiences } from '../mocks/experiences';
 import Image from 'next/image';
+import { useGeolocationContext } from '../hooks/geolocationcontext';
 
 const NewsLetter = ({ session }) => {
+  let context;
+  try {
+    context = useGeolocationContext();
+  } catch (error) {
+    console.error(error.message);
+    return <div>{error.message}</div>;
+  }
+
+  const { addressComponent, error } = context;
+  console.log("NewsLetter - addressComponent:", addressComponent, "error:", error); // Add this log
+
   const [type, setType] = useState("overview");
 
   const typeOffers = [
@@ -19,6 +31,16 @@ const NewsLetter = ({ session }) => {
     { title: "Sustainability", active: type === "sustainability", onClick: () => setType("sustainability") },
     { title: "Sport", active: type === "sport", onClick: () => setType("sport") },
   ];
+
+  const experiencesWithAddress = experiences.map((experience) => {
+    if (experience.prompt) {
+      return {
+        ...experience,
+        prompt: experience.prompt.replace('{addressComponent}', addressComponent || 'your area'),
+      };
+    }
+    return experience;
+  });
 
   return (
     <div className='h-full relative'>
@@ -44,6 +66,7 @@ const NewsLetter = ({ session }) => {
                   />
                 ))}
               </div>
+              {error && <div>Error: {error}</div>}
             </div>
           </div>
         </Layout>

@@ -76,7 +76,7 @@ const Siri: React.FC<SiriProps> = ({ theme }) => {
         </motion.button>
         <motion.div
           className="rounded-4xl p-4 overflow-hidden"
-          initial={{ width: 0, opacity: 0 }}
+          initial={{ width: 0, : 0 }}
           animate={{ width: '100%', opacity: 1 }}
           exit={{ width: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
